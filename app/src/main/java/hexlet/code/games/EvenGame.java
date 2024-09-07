@@ -12,7 +12,7 @@ public class EvenGame {
         engine.explainGame();
         var roundCount = 0;
 
-        while (roundCount < 3) {
+        while (roundCount < Engine.ROUNDS_AMOUNT) {
             int number = engine.generateGameData(100);
             boolean isEven = number % 2 == 0;
             String correctAnswer = isEven ? YES : NO;

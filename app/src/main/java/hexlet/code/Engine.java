@@ -8,7 +8,7 @@ public class Engine {
     public static final String EVEN = "EVEN";
     public static final String CALC = "CALCULATOR";
 
-    public static final String ROUNDS_AMOUBT
+    public static final int ROUNDS_AMOUNT = 3;
 
     private final String game;
     private String userName;

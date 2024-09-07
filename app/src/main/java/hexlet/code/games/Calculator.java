@@ -15,7 +15,7 @@ public class Calculator {
         int number1, number2, operation;
         int correctAnswer = 0;
         String expression = "";
-        while (roundCount < 3) {
+        while (roundCount < Engine.ROUNDS_AMOUNT) {
             number1 = engine.generateGameData(30);
             number2 = engine.generateGameData(35);
             operation = engine.generateGameData(4);
