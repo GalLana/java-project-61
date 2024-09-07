@@ -1,19 +1,18 @@
 package hexlet.code;
 
 
+import hexlet.code.games.Calculator;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.Greeting;
+
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-
         // Вывод списка игр
-        System.out.println("Please enter the game number and press Enter:");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("0 - Exit");
-        System.out.print("Your choice: ");
+        chooseGames();
 
         // Чтение выбора пользователя
         int choice = scanner.nextInt();
@@ -24,15 +23,18 @@ public class App {
             case 0:
                 // Выход из программы
                 System.out.println("Goodbye!");
-                scanner.close();
-                return;
+                break;
             case 1:
                 // Запуск игры Greet
-                Greeting.start();
+                Greeting.start(new Engine(Engine.GREETING, scanner));
                 break;
             case 2:
                 // Запуск игры Even
-                EvenGame.start();
+                EvenGame.start(new Engine(Engine.EVEN, scanner));
+                break;
+            case 3:
+                // Запуск игры Calculator
+                Calculator.start(new Engine(Engine.CALC, scanner));
                 break;
             default:
                 // Сообщение об ошибке при неверном вводе
@@ -40,6 +42,15 @@ public class App {
         }
 
         scanner.close();
+    }
+
+    public static void chooseGames() {
+        System.out.println("Please enter the game number and press Enter:");
+        System.out.println("1 - Greet");
+        System.out.println("2 - Even");
+        System.out.println("3 - Calc");
+        System.out.println("0 - Exit");
+        System.out.print("Your choice: ");
     }
 
 }
