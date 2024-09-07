@@ -7,6 +7,7 @@ public class Engine {
     public static final String GREETING = "GREETING";
     public static final String EVEN = "EVEN";
     public static final String CALC = "CALCULATOR";
+    public static final String GCD = "GCD";
 
     public static final int ROUNDS_AMOUNT = 3;
 
@@ -43,6 +44,9 @@ public class Engine {
             case CALC:
                 System.out.println("What is the result of the expression?");
                 break;
+            case GCD:
+                System.out.println("Find the greatest common divisor of given numbers.");
+                break;
             default:
                 break;
         }
@@ -51,7 +55,9 @@ public class Engine {
     public void gameSuccessful() {
         System.out.println("Congratulations, " + this.userName + "!");
     }
-
+    public void roundSuccessful() {
+        System.out.println("Correct!");
+    }
     public void gameFailed(String wrongAnswer, String correctAnswer) {
         System.out.println("'" + wrongAnswer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'.\nLet's try again, " + this.userName + "!");

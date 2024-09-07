@@ -3,18 +3,22 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Calculator {
-    private static final String addition = " + ";
-    private static final String minus = " - ";
-    private static final String multiply = " * ";
+    private static final String ADDITION = " + ";
+    private static final String MINUS = " - ";
+    private static final String MULTIPLY = " * ";
 
 
     public static void start(Engine engine) {
         engine.greetUser();
         engine.explainGame();
         var roundCount = 0;
-        int number1, number2, operation;
+        int number1;
+        int number2;
+        int operation;
+
         int correctAnswer = 0;
         String expression = "";
+
         while (roundCount < Engine.ROUNDS_AMOUNT) {
             number1 = engine.generateGameData(30);
             number2 = engine.generateGameData(35);
@@ -23,15 +27,15 @@ public class Calculator {
             switch (operation) {
                 case 0:
                     correctAnswer = number1 + number2;
-                    expression = number1 + addition + number2;
+                    expression = number1 + ADDITION + number2;
                     break;
                 case 1:
                     correctAnswer = number1 - number2;
-                    expression = number1 + minus + number2;
+                    expression = number1 + MINUS + number2;
                     break;
                 case 2:
                     correctAnswer = number1 * number2;
-                    expression = number1 + multiply + number2;
+                    expression = number1 + MULTIPLY + number2;
                     break;
                 default:
                     System.out.println("No such operation");
@@ -41,6 +45,7 @@ public class Calculator {
             int answer = Integer.parseInt(a);
             if (answer == correctAnswer) {
                 roundCount++;
+                engine.roundSuccessful();
             } else {
                 engine.gameFailed(String.valueOf(answer), String.valueOf(correctAnswer));
                 return;

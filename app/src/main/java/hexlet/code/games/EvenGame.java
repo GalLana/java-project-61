@@ -21,6 +21,7 @@ public class EvenGame {
 
             if (answer.equals(correctAnswer)) {
                 roundCount++;
+                engine.roundSuccessful();
             } else {
                 engine.gameFailed(answer, correctAnswer);
                 return;

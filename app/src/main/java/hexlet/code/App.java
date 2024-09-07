@@ -3,6 +3,7 @@ package hexlet.code;
 
 import hexlet.code.games.Calculator;
 import hexlet.code.games.EvenGame;
+import hexlet.code.games.GCD;
 import hexlet.code.games.Greeting;
 
 import java.util.Scanner;
@@ -36,6 +37,10 @@ public class App {
                 // Запуск игры Calculator
                 Calculator.start(new Engine(Engine.CALC, scanner));
                 break;
+            case 4:
+                // Запуск игры GCD
+                GCD.start(new Engine(Engine.GCD, scanner));
+                break;
             default:
                 // Сообщение об ошибке при неверном вводе
                 System.out.println("Invalid choice. Please try again.");
@@ -49,6 +54,7 @@ public class App {
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
+        System.out.println("4 - GCD");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
     }
