@@ -18,18 +18,18 @@ public class Calculator {
         while (roundCount < Engine.ROUNDS_AMOUNT) {
             number1 = engine.generateGameData(30);
             number2 = engine.generateGameData(35);
-            operation = engine.generateGameData(4);
+            operation = engine.generateGameData(3);
 
             switch (operation) {
-                case 1:
+                case 0:
                     correctAnswer = number1 + number2;
                     expression = number1 + addition + number2;
                     break;
-                case 2:
+                case 1:
                     correctAnswer = number1 - number2;
                     expression = number1 + minus + number2;
                     break;
-                case 3:
+                case 2:
                     correctAnswer = number1 * number2;
                     expression = number1 + multiply + number2;
                     break;

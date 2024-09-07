@@ -59,7 +59,8 @@ public class Engine {
 
     public int generateGameData(int seed) {
         Random random = new Random(System.currentTimeMillis());
-        return random.nextInt(seed);
+        int k = random.nextInt(seed);
+        return k;
     }
 
     public String roundCommunication(String expression) {
