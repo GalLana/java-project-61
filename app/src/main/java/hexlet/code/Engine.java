@@ -9,6 +9,7 @@ public class Engine {
     public static final String CALC = "CALCULATOR";
     public static final String GCD = "GCD";
     public static final String PROGRESSION = "PROGRESSION";
+    public static final String PRIME = "PRIME";
 
     public static final int ROUNDS_AMOUNT = 3;
 
@@ -20,12 +21,6 @@ public class Engine {
         this.game = game;
         this.scanner = scanner;
     }
-
-    //public Scanner getScanner() {return scanner;}
-
-    //public String getGame() {return game;}
-
-    //public String getUserName() {return this.userName;}
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -50,6 +45,9 @@ public class Engine {
                 break;
             case PROGRESSION:
                 System.out.println("What number is missing in the progression?");
+                break;
+            case PRIME:
+                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
                 break;
             default:
                 break;

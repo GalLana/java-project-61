@@ -1,11 +1,8 @@
 package hexlet.code;
 
 
-import hexlet.code.games.Calculator;
-import hexlet.code.games.Greeting;
-import hexlet.code.games.EvenGame;
-import hexlet.code.games.GCD;
-import hexlet.code.games.ArithmeticProgressionGame;
+import hexlet.code.games.*;
+
 import java.util.Scanner;
 
 public class App {
@@ -45,6 +42,10 @@ public class App {
                 // Запуск игры Progression
                 ArithmeticProgressionGame.start(new Engine(Engine.PROGRESSION, scanner));
                 break;
+            case 6:
+                // Запуск игры Prime
+                PrimeGame.start(new Engine(Engine.PRIME, scanner));
+                break;
             default:
                 // Сообщение об ошибке при неверном вводе
                 System.out.println("Invalid choice. Please try again.");
@@ -60,6 +61,7 @@ public class App {
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
     }
