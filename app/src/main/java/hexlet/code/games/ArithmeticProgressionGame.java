@@ -24,7 +24,7 @@ public class ArithmeticProgressionGame {
             firstElem = engine.generateGameData(100);
             missedPosition = generateMissedPosition(engine, numsAmount);
             commonDifference = generateCommonDifference(engine);
-            correctAnswer = firstElem + (missedPosition - 1) * commonDifference;
+            correctAnswer = firstElem + (missedPosition /*- 1*/) * commonDifference;
             expression = generateProgression(numsAmount, firstElem, commonDifference, missedPosition);
             System.out.print("ProgressionLength = " + numsAmount + " firstElem = " + firstElem + " missedPosition = ");
             System.out.println(missedPosition + " commonDifference = " + commonDifference + " correctAnswer = " + correctAnswer);
@@ -66,7 +66,7 @@ public class ArithmeticProgressionGame {
             if (i == missedPosition) {
                 result += "..";
             } else {
-                result += (firstElem + (i - 1) * commonDifference);
+                result += (firstElem + (i /*- 1*/) * commonDifference);
             }
             if (i != amount) {
                 result += " ";
