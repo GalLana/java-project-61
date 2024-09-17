@@ -9,7 +9,7 @@ public class ArithmeticProgressionGame {
         engine.explainGame();
 
         var roundCount = 0;
-        int minProgressionLength = 4;
+        int minProgressionLength = 5;
         int maxProgressionLength = 10;
         int numsAmount;
         int missedPosition;
@@ -23,9 +23,8 @@ public class ArithmeticProgressionGame {
             numsAmount = engine.generateGameData(maxProgressionLength - minProgressionLength) + minProgressionLength;
             firstElem = engine.generateGameData(100);
             missedPosition = generateMissedPosition(engine, numsAmount);
-            commonDifference = generateCommomDifference(engine);
+            commonDifference = generateCommonDifference(engine);
             correctAnswer = firstElem + (missedPosition - 1) * commonDifference;
-
             expression = generateProgression(numsAmount, firstElem, commonDifference, missedPosition);
 
             String userAnswer = engine.roundCommunication(expression);
@@ -45,13 +44,13 @@ public class ArithmeticProgressionGame {
     private static int generateMissedPosition(Engine engine, int progressionLength) {
         int result = engine.generateGameData(progressionLength);
 
-        while (result < 1 && result > progressionLength) {
+        while (result < 1 || result > progressionLength) {
             result = engine.generateGameData(progressionLength);
         }
         return result;
     }
 
-    private static int generateCommomDifference(Engine engine) {
+    private static int generateCommonDifference(Engine engine) {
         int result = engine.generateGameData(30);
 
         while (result == 0) {
