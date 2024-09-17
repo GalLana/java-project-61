@@ -4,33 +4,34 @@ import hexlet.code.Engine;
 
 public class ArithmeticProgressionGame {
 
+    private static final int MIN_LENGTH = 5; // Минимальная длина прогрессии
+    private static final int MAX_LENGTH = 10; // Максимальная длина прогрессии
+
     public static void start(Engine engine) {
+
         engine.greetUser();
         engine.explainGame();
 
         var roundCount = 0;
-        int minProgressionLength = 5;
-        int maxProgressionLength = 10;
-        int numsAmount;
-        int missedPosition;
-        int commonDifference;
+        int progressionLength;
+        int hiddenIndex;
+        int difference;
         int correctAnswer;
         int firstElem;
         String expression;
 
 
         while (roundCount < Engine.ROUNDS_AMOUNT) {
-            numsAmount = engine.generateGameData(maxProgressionLength - minProgressionLength) + minProgressionLength;
+            progressionLength = engine.generateGameData(MAX_LENGTH - MIN_LENGTH + 1) + MIN_LENGTH;
             firstElem = engine.generateGameData(100);
-            missedPosition = generateMissedPosition(engine, numsAmount);
-            commonDifference = generateCommonDifference(engine);
-            correctAnswer = firstElem + (missedPosition /*- 1*/) * commonDifference;
-            expression = generateProgression(numsAmount, firstElem, commonDifference, missedPosition);
-            //System.out.print("ProgressionLength = " + numsAmount + " firstElem = " + firstElem + " missedPosition = ");
-            //System.out.println(missedPosition + " commonDifference = " + commonDifference + " correctAnswer = " + correctAnswer);
+            hiddenIndex = generateMissedPosition(engine, progressionLength);
+            difference = generateCommonDifference(engine);
+            correctAnswer = firstElem + hiddenIndex * difference;
+            expression = generateProgression(progressionLength, firstElem, difference, hiddenIndex);
+
             String userAnswer = engine.roundCommunication(expression);
             int answer = Integer.parseInt(userAnswer);
-            //System.out.print("answer = " + answer + " ");
+
             if (answer == correctAnswer) {
                 roundCount++;
                 engine.roundSuccessful();
@@ -60,15 +61,15 @@ public class ArithmeticProgressionGame {
         return result;
     }
 
-    private static String generateProgression(int amount, int firstElem, int commonDifference, int missedPosition) {
+    private static String generateProgression(int amount, int firstElem, int difference, int hiddenIndex) {
         String result = "";
-        for (int i = 1; i <= amount; i++) {
-            if (i == missedPosition) {
+        for (int i = 0; i < amount; i++) {
+            if (i == hiddenIndex) {
                 result += "..";
             } else {
-                result += (firstElem + (i /*- 1*/) * commonDifference);
+                result += (firstElem + i * difference);
             }
-            if (i != amount) {
+            if (i != (amount - 1)) {
                 result += " ";
             }
         }
