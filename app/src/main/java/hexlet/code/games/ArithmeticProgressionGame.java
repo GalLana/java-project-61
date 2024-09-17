@@ -26,10 +26,11 @@ public class ArithmeticProgressionGame {
             commonDifference = generateCommonDifference(engine);
             correctAnswer = firstElem + (missedPosition - 1) * commonDifference;
             expression = generateProgression(numsAmount, firstElem, commonDifference, missedPosition);
-
+            System.out.print("ProgressionLength = " + numsAmount + " firstElem = " + firstElem + " missedPosition = ");
+            System.out.println(missedPosition + " commonDifference = " + commonDifference + " correctAnswer = " + correctAnswer);
             String userAnswer = engine.roundCommunication(expression);
             int answer = Integer.parseInt(userAnswer);
-
+            System.out.print("answer = " + answer + " ");
             if (answer == correctAnswer) {
                 roundCount++;
                 engine.roundSuccessful();
