@@ -4,8 +4,15 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/110d7ad6582c343efdec/maintainability)](https://codeclimate.com/github/GalLana/java-project-61/maintainability)
 
 ### Demo
-[![asciicast](https://asciinema.org/a/IAiUVSgDjQU6EMbpaKeIQBaUh.png)](https://asciinema.org/a/IAiUVSgDjQU6EMbpaKeIQBaUh)
-[![asciicast](https://asciinema.org/a/zRKYvbUOm4yVrfPx7sJ6Xj8F6.png)](https://asciinema.org/a/zRKYvbUOm4yVrfPx7sJ6Xj8F6)
-[![asciicast](https://asciinema.org/a/uaQtJbZ4mN4fJ6z0C7m0Z8QMq.png)](https://asciinema.org/a/uaQtJbZ4mN4fJ6z0C7m0Z8QMq)
-[![asciicast]( https://asciinema.org/a/Eeoi7gGnW38fqDXu1Xt9kDlb1.png)]( https://asciinema.org/a/Eeoi7gGnW38fqDXu1Xt9kDlb1)
-[![asciicast]( https://asciinema.org/a/qhl7tv8R7yS6xqiuyEtcP5pni.png)]( https://asciinema.org/a/qhl7tv8R7yS6xqiuyEtcP5pni)
+### Greeting
+[![asciicast](https://asciinema.org/a/7oUwfX6hT1LP1cToeAhMpbZ2c.png)](https://asciinema.org/a/7oUwfX6hT1LP1cToeAhMpbZ2c)
+### Even numbers
+[![asciicast](https://asciinema.org/a/z24b0kp1H4RJoIVChkMxshK1o.png)](https://asciinema.org/a/z24b0kp1H4RJoIVChkMxshK1o)
+### Calculator
+[![asciicast](https://asciinema.org/a/7zscQz2FXfiFSUkQ8H6gy1mly.png)](https://asciinema.org/a/7zscQz2FXfiFSUkQ8H6gy1mly)
+### GCD
+[![asciicast](https://asciinema.org/a/jH0BZsJLP9606womsz2H2boXy.png)](https://asciinema.org/a/jH0BZsJLP9606womsz2H2boXy)
+### Arithmetic Progression
+[![asciicast](https://asciinema.org/a/Eeoi7gGnW38fqDXu1Xt9kDlb1.png)](https://asciinema.org/a/Eeoi7gGnW38fqDXu1Xt9kDlb1)
+### Prime numbers
+[![asciicast](https://asciinema.org/a/qhl7tv8R7yS6xqiuyEtcP5pni.png)](https://asciinema.org/a/qhl7tv8R7yS6xqiuyEtcP5pni)

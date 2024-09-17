@@ -1,7 +1,12 @@
 package hexlet.code;
 
 
-import hexlet.code.games.*;
+import hexlet.code.games.ArithmeticProgressionGame;
+import hexlet.code.games.Calculator;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Greeting;
+import hexlet.code.games.PrimeGame;
 
 import java.util.Scanner;
 
@@ -15,7 +20,9 @@ public class App {
         // Чтение выбора пользователя
         int choice = scanner.nextInt();
         scanner.nextLine();
-
+        // Класс с общими методами для всех игр
+        Engine engine = new Engine();
+        engine.setScanner(scanner);
         // Обработка выбора пользователя
         switch (choice) {
             case 0:
@@ -24,27 +31,33 @@ public class App {
                 break;
             case 1:
                 // Запуск игры Greet
-                Greeting.start(new Engine(Engine.GREETING, scanner));
+                engine.setGame(Engine.GREETING);
+                Greeting.start(engine);
                 break;
             case 2:
                 // Запуск игры Even
-                EvenGame.start(new Engine(Engine.EVEN, scanner));
+                engine.setGame(Engine.EVEN);
+                EvenGame.start(engine);
                 break;
             case 3:
                 // Запуск игры Calculator
-                Calculator.start(new Engine(Engine.CALC, scanner));
+                engine.setGame(Engine.CALC);
+                Calculator.start(engine);
                 break;
             case 4:
                 // Запуск игры GCD
-                GCD.start(new Engine(Engine.GCD, scanner));
+                engine.setGame(Engine.GCD);
+                GCD.start(engine);
                 break;
             case 5:
                 // Запуск игры Progression
-                ArithmeticProgressionGame.start(new Engine(Engine.PROGRESSION, scanner));
+                engine.setGame(Engine.PROGRESSION);
+                ArithmeticProgressionGame.start(engine);
                 break;
             case 6:
                 // Запуск игры Prime
-                PrimeGame.start(new Engine(Engine.PRIME, scanner));
+                engine.setGame(Engine.PRIME);
+                PrimeGame.start(engine);
                 break;
             default:
                 // Сообщение об ошибке при неверном вводе

@@ -13,17 +13,20 @@ public class Engine {
 
     public static final int ROUNDS_AMOUNT = 3;
 
-    private final String game;
+    private String game;
     private String userName;
-    private final Scanner scanner;
+    private Scanner scanner;
 
-    public Engine(String game, Scanner scanner) {
+    public void setGame(String game) {
         this.game = game;
-        this.scanner = scanner;
     }
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
     }
 
     public void greetUser() {
