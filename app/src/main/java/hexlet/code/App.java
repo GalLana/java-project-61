@@ -11,6 +11,14 @@ import hexlet.code.games.PrimeGame;
 import java.util.Scanner;
 
 public class App {
+    private static final int EXIT = 0;
+    private static final int GREETING_GAME = 1;
+    private static final int EVEN_NUMBER_GAME = 2;
+    private static final int CALCULATOR_GAME = 3;
+    private static final int GCD_GAME = 4;
+    private static final int ARITHMETIC_PROGRESSION_GAME = 5;
+    private static final int PRIME_NUMBER_GAME = 6;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -25,36 +33,36 @@ public class App {
         engine.setScanner(scanner);
         // Обработка выбора пользователя
         switch (choice) {
-            case 0:
+            case EXIT:
                 // Выход из программы
                 System.out.println("Goodbye!");
                 break;
-            case 1:
+            case GREETING_GAME:
                 // Запуск игры Greet
                 engine.setGame(Engine.GREETING);
                 Greeting.start(engine);
                 break;
-            case 2:
+            case EVEN_NUMBER_GAME:
                 // Запуск игры Even
                 engine.setGame(Engine.EVEN);
                 EvenGame.start(engine);
                 break;
-            case 3:
+            case CALCULATOR_GAME:
                 // Запуск игры Calculator
                 engine.setGame(Engine.CALC);
                 Calculator.start(engine);
                 break;
-            case 4:
+            case GCD_GAME:
                 // Запуск игры GCD
                 engine.setGame(Engine.GCD);
                 GCD.start(engine);
                 break;
-            case 5:
+            case ARITHMETIC_PROGRESSION_GAME:
                 // Запуск игры Progression
                 engine.setGame(Engine.PROGRESSION);
                 ArithmeticProgressionGame.start(engine);
                 break;
-            case 6:
+            case PRIME_NUMBER_GAME:
                 // Запуск игры Prime
                 engine.setGame(Engine.PRIME);
                 PrimeGame.start(engine);
@@ -69,13 +77,13 @@ public class App {
 
     public static void chooseGames() {
         System.out.println("Please enter the game number and press Enter:");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("3 - Calc");
-        System.out.println("4 - GCD");
-        System.out.println("5 - Progression");
-        System.out.println("6 - Prime");
-        System.out.println("0 - Exit");
+        System.out.println(GREETING_GAME + " - Greet");
+        System.out.println(EVEN_NUMBER_GAME + " - Even");
+        System.out.println(CALCULATOR_GAME + " - Calc");
+        System.out.println(GCD_GAME + " - GCD");
+        System.out.println(ARITHMETIC_PROGRESSION_GAME + " - Progression");
+        System.out.println(PRIME_NUMBER_GAME + " - Prime");
+        System.out.println(EXIT + " - Exit");
         System.out.print("Your choice: ");
     }
 

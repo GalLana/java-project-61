@@ -5,6 +5,7 @@ import hexlet.code.Engine;
 public class PrimeGame {
     private static final String YES = "yes";
     private static final String NO = "no";
+    private static final int SEED_FOR_NUMBER_GENERATION = 100;
 
     public static  void start(Engine engine) {
         engine.greetUser();
@@ -12,7 +13,7 @@ public class PrimeGame {
         var roundCount = 0;
         int number;
         while (roundCount < Engine.ROUNDS_AMOUNT) {
-            number = engine.generateGameData(100);
+            number = engine.generateGameData(SEED_FOR_NUMBER_GENERATION);
             String correctAnswer = isPrime(number);
 
             String answer = engine.roundCommunication(String.valueOf(number));

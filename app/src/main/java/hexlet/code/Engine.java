@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Engine {
+public final class Engine {
     public static final String GREETING = "GREETING";
     public static final String EVEN = "EVEN";
     public static final String CALC = "CALCULATOR";

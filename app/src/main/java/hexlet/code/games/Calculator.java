@@ -7,6 +7,10 @@ public class Calculator {
     private static final String MINUS = " - ";
     private static final String MULTIPLY = " * ";
 
+    private static final int SEED_FOR_FIRST_NUMBER_GENERATION = 30;
+    private static final int SEED_FOR_SECOND_NUMBER_GENERATION = 35;
+    private static final int SEED_FOR_OPERATION_GENERATION = 3;
+
 
     public static void start(Engine engine) {
         engine.greetUser();
@@ -20,9 +24,9 @@ public class Calculator {
         String expression = "";
 
         while (roundCount < Engine.ROUNDS_AMOUNT) {
-            number1 = engine.generateGameData(30);
-            number2 = engine.generateGameData(35);
-            operation = engine.generateGameData(3);
+            number1 = engine.generateGameData(SEED_FOR_FIRST_NUMBER_GENERATION);
+            number2 = engine.generateGameData(SEED_FOR_SECOND_NUMBER_GENERATION);
+            operation = engine.generateGameData(SEED_FOR_OPERATION_GENERATION);
 
             switch (operation) {
                 case 0:

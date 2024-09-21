@@ -6,6 +6,8 @@ public class ArithmeticProgressionGame {
 
     private static final int MIN_LENGTH = 5; // Минимальная длина прогрессии
     private static final int MAX_LENGTH = 10; // Максимальная длина прогрессии
+    private static final int SEED_FOR_FIRST_ELEMENT_GENERATION = 100;
+    private static final int SEED_FOR_COMMON_DIFFERENCE_GENERATION = 30;
 
     public static void start(Engine engine) {
 
@@ -23,7 +25,7 @@ public class ArithmeticProgressionGame {
 
         while (roundCount < Engine.ROUNDS_AMOUNT) {
             progressionLength = engine.generateGameData(MAX_LENGTH - MIN_LENGTH + 1) + MIN_LENGTH;
-            firstElem = engine.generateGameData(100);
+            firstElem = engine.generateGameData(SEED_FOR_FIRST_ELEMENT_GENERATION);
             hiddenIndex = generateMissedPosition(engine, progressionLength);
             difference = generateCommonDifference(engine);
             correctAnswer = firstElem + hiddenIndex * difference;
@@ -53,10 +55,10 @@ public class ArithmeticProgressionGame {
     }
 
     private static int generateCommonDifference(Engine engine) {
-        int result = engine.generateGameData(30);
+        int result = engine.generateGameData(SEED_FOR_COMMON_DIFFERENCE_GENERATION);
 
         while (result == 0) {
-            result = engine.generateGameData(30);
+            result = engine.generateGameData(SEED_FOR_COMMON_DIFFERENCE_GENERATION);
         }
         return result;
     }

@@ -3,6 +3,9 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class GCD {
+    private static final int SEED_FOR_FIRST_NUMBER_GENERATION = 30;
+    private static final int SEED_FOR_SECOND_NUMBER_GENERATION = 35;
+
     private static int gcd(int num1, int num2) {
         while (num2 != 0) {
             int temp = num2;
@@ -23,8 +26,8 @@ public class GCD {
         String expression;
 
         while (roundCount < Engine.ROUNDS_AMOUNT) {
-            number1 = engine.generateGameData(30);
-            number2 = engine.generateGameData(35);
+            number1 = engine.generateGameData(SEED_FOR_FIRST_NUMBER_GENERATION);
+            number2 = engine.generateGameData(SEED_FOR_SECOND_NUMBER_GENERATION);
             expression = number1 + " " + number2;
 
             correctAnswer = gcd(number1, number2);
