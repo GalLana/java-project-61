@@ -40,7 +40,7 @@ public class Calculator {
             int number2 = engine.generateGameData(SEED_FOR_SECOND_NUMBER_GENERATION);
             int operation = engine.generateGameData(SEED_FOR_OPERATION_GENERATION);
 
-            gameData[i] = number1 + OPERATIONS[operation] + number2;
+            gameData[i] = number1 + " " + OPERATIONS[operation] + " " + number2;
             int correctAnswer = getCorrectOperationResult(number1, number2, operation);
             correctAnswers[i] = String.valueOf(correctAnswer);
         }
