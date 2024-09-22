@@ -28,9 +28,6 @@ public class App {
         // Чтение выбора пользователя
         int choice = scanner.nextInt();
         scanner.nextLine();
-        // Класс с общими методами для всех игр
-        Engine engine = new Engine();
-        engine.setScanner(scanner);
         // Обработка выбора пользователя
         switch (choice) {
             case EXIT:
@@ -39,39 +36,32 @@ public class App {
                 break;
             case GREETING_GAME:
                 // Запуск игры Greet
-                engine.setGame(Engine.GREETING);
-                Greeting.start(engine);
+                Greeting.start();
                 break;
             case EVEN_NUMBER_GAME:
                 // Запуск игры Even
-                engine.setGame(Engine.EVEN);
-                EvenGame.start(engine);
+                EvenGame.start();
                 break;
             case CALCULATOR_GAME:
                 // Запуск игры Calculator
-                engine.setGame(Engine.CALC);
-                Calculator.start(engine);
+                Calculator.start();
                 break;
             case GCD_GAME:
                 // Запуск игры GCD
-                engine.setGame(Engine.GCD);
-                GCD.start(engine);
+                GCD.start();
                 break;
             case ARITHMETIC_PROGRESSION_GAME:
                 // Запуск игры Progression
-                engine.setGame(Engine.PROGRESSION);
-                ArithmeticProgressionGame.start(engine);
+                ArithmeticProgressionGame.start();
                 break;
             case PRIME_NUMBER_GAME:
                 // Запуск игры Prime
-                engine.setGame(Engine.PRIME);
-                PrimeGame.start(engine);
+                PrimeGame.start();
                 break;
             default:
                 // Сообщение об ошибке при неверном вводе
                 System.out.println("Invalid choice. Please try again.");
         }
-
         scanner.close();
     }
 

@@ -13,49 +13,8 @@ public final class Engine {
 
     public static final int ROUNDS_AMOUNT = 3;
 
-    private String game;
     private String userName;
-    private Scanner scanner;
-
-    public void setGame(String game) {
-        this.game = game;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public void setScanner(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
-    public void greetUser() {
-        System.out.print("Welcome to the Brain Games!\nMay I have your name? ");
-        setUserName(this.scanner.nextLine().trim());
-        System.out.println("Hello, " + this.userName + "!");
-    }
-
-    public void explainGame() {
-        switch (this.game) {
-            case EVEN:
-                System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-                break;
-            case CALC:
-                System.out.println("What is the result of the expression?");
-                break;
-            case GCD:
-                System.out.println("Find the greatest common divisor of given numbers.");
-                break;
-            case PROGRESSION:
-                System.out.println("What number is missing in the progression?");
-                break;
-            case PRIME:
-                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-                break;
-            default:
-                break;
-        }
-    }
+    private Scanner scanner = new Scanner(System.in);
 
     public void gameSuccessful() {
         System.out.println("Congratulations, " + this.userName + "!");
@@ -69,7 +28,7 @@ public final class Engine {
     }
 
     public int generateGameData(int seed) {
-        Random random = new Random(System.currentTimeMillis());
+        Random random = new Random(System.nanoTime());
         int k = random.nextInt(seed);
         return k;
     }
@@ -77,5 +36,33 @@ public final class Engine {
     public String roundCommunication(String expression) {
         System.out.print("Question: " + expression + "\nYour answer: ");
         return this.scanner.nextLine().trim().toLowerCase();
+    }
+
+    private void greetUser() {
+        System.out.print("Welcome to the Brain Games!\nMay I have your name? ");
+        this.userName = scanner.nextLine().trim();
+        System.out.println("Hello, " + this.userName + "!");
+    }
+
+    public void playGame(String game, String gameRules, String[] gameData, String[] correctAnswers) {
+        greetUser();
+
+        if (!GREETING.equals(game)) {
+            System.out.println(gameRules);
+            for (int round = 0; round < ROUNDS_AMOUNT; round++) {
+
+                String userAnswer = roundCommunication(gameData[round]);
+
+                if (userAnswer.equals(correctAnswers[round])) {
+                    roundSuccessful();
+                } else {
+                    gameFailed(userAnswer, correctAnswers[round]);
+                    return;
+                }
+            }
+            gameSuccessful();
+        }
+
+        this.scanner.close();
     }
 }

@@ -7,28 +7,26 @@ public class EvenGame {
     private static final String YES = "yes";
     private static final String NO = "no";
     private static final int SEED_FOR_NUMBER_GENERATION = 100;
+    private static final String GAME_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static void start(Engine engine) {
-        engine.greetUser();
-        engine.explainGame();
-        var roundCount = 0;
+    private static String isEven(int number) {
+        boolean isEven = number % 2 == 0;
+        return isEven ? YES : NO;
+    }
 
-        while (roundCount < Engine.ROUNDS_AMOUNT) {
+    public static void start() {
+        Engine engine = new Engine();
+        // Генерим данные для игры и сразу вычисляем правильные ответы
+        String[] gameData = new String[Engine.ROUNDS_AMOUNT];
+        String[] correctAnswers = new String[Engine.ROUNDS_AMOUNT];
+
+        for (int i = 0; i < Engine.ROUNDS_AMOUNT; i++) {
             int number = engine.generateGameData(SEED_FOR_NUMBER_GENERATION);
-            boolean isEven = number % 2 == 0;
-            String correctAnswer = isEven ? YES : NO;
-
-            String answer = engine.roundCommunication(String.valueOf(number));
-
-            if (answer.equals(correctAnswer)) {
-                roundCount++;
-                engine.roundSuccessful();
-            } else {
-                engine.gameFailed(answer, correctAnswer);
-                return;
-            }
+            gameData[i] = String.valueOf(number);
+            correctAnswers[i] = isEven(number);
         }
-        engine.gameSuccessful();
+        // Запуск игрового процесса
+        engine.playGame(Engine.EVEN, GAME_RULES, gameData, correctAnswers);
     }
 
 
