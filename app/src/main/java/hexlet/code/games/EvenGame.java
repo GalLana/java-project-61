@@ -9,24 +9,22 @@ public class EvenGame {
     private static final int SEED_FOR_NUMBER_GENERATION = 100;
     private static final String GAME_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    private static String isEven(int number) {
-        boolean isEven = number % 2 == 0;
-        return isEven ? YES : NO;
+    private static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 
     public static void start() {
         Engine engine = new Engine();
         // Генерим данные для игры и сразу вычисляем правильные ответы
-        String[] gameData = new String[Engine.ROUNDS_AMOUNT];
-        String[] correctAnswers = new String[Engine.ROUNDS_AMOUNT];
+        String[][] gameData = new String[Engine.ROUNDS_AMOUNT][Engine.GAME_DATA_LENGTH];
 
         for (int i = 0; i < Engine.ROUNDS_AMOUNT; i++) {
             int number = engine.generateGameData(SEED_FOR_NUMBER_GENERATION);
-            gameData[i] = String.valueOf(number);
-            correctAnswers[i] = isEven(number);
+            gameData[i][Engine.QUESTION_POSITION] = String.valueOf(number);
+            gameData[i][Engine.ANSWER_POSITION] = isEven(number) ? YES : NO;
         }
         // Запуск игрового процесса
-        engine.playGame(Engine.EVEN, GAME_RULES, gameData, correctAnswers);
+        engine.playGame(Engine.EVEN, GAME_RULES, gameData);
     }
 
 

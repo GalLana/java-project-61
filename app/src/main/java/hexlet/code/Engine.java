@@ -12,16 +12,13 @@ public final class Engine {
     public static final String PRIME = "PRIME";
 
     public static final int ROUNDS_AMOUNT = 3;
+    public static final int QUESTION_POSITION = 0;
+    public static final int ANSWER_POSITION = 1;
+    public static final int GAME_DATA_LENGTH = 2;
 
     private String userName;
     private Scanner scanner = new Scanner(System.in);
 
-    public void gameSuccessful() {
-        System.out.println("Congratulations, " + this.userName + "!");
-    }
-    public void roundSuccessful() {
-        System.out.println("Correct!");
-    }
     public void gameFailed(String wrongAnswer, String correctAnswer) {
         System.out.println("'" + wrongAnswer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'.\nLet's try again, " + this.userName + "!");
@@ -44,23 +41,23 @@ public final class Engine {
         System.out.println("Hello, " + this.userName + "!");
     }
 
-    public void playGame(String game, String gameRules, String[] gameData, String[] correctAnswers) {
+    public void playGame(String game, String gameRules, String[][] gameData) {
         greetUser();
 
         if (!GREETING.equals(game)) {
             System.out.println(gameRules);
             for (int round = 0; round < ROUNDS_AMOUNT; round++) {
 
-                String userAnswer = roundCommunication(gameData[round]);
+                String userAnswer = roundCommunication(gameData[round][QUESTION_POSITION]);
 
-                if (userAnswer.equals(correctAnswers[round])) {
-                    roundSuccessful();
+                if (userAnswer.equals(gameData[round][ANSWER_POSITION])) {
+                    System.out.println("Correct!");
                 } else {
-                    gameFailed(userAnswer, correctAnswers[round]);
+                    gameFailed(userAnswer, gameData[round][ANSWER_POSITION]);
                     return;
                 }
             }
-            gameSuccessful();
+            System.out.println("Congratulations, " + this.userName + "!");
         }
 
         this.scanner.close();

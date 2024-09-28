@@ -60,7 +60,7 @@ public class App {
                 break;
             default:
                 // Сообщение об ошибке при неверном вводе
-                System.out.println("Invalid choice. Please try again.");
+                throw new Error("Invalid choice. Please try again.");
         }
         scanner.close();
     }

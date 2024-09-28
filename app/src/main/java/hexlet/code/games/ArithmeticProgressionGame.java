@@ -43,8 +43,7 @@ public class ArithmeticProgressionGame {
         Engine engine = new Engine();
 
         // Генерим данные для игры и сразу вычисляем правильные ответы
-        String[] gameData = new String[Engine.ROUNDS_AMOUNT];
-        String[] correctAnswers = new String[Engine.ROUNDS_AMOUNT];
+        String[][] gameData = new String[Engine.ROUNDS_AMOUNT][Engine.GAME_DATA_LENGTH];
 
         for (int i = 0; i < Engine.ROUNDS_AMOUNT; i++) {
             int progressionLength = engine.generateGameData(MAX_LENGTH - MIN_LENGTH + 1) + MIN_LENGTH;
@@ -52,12 +51,14 @@ public class ArithmeticProgressionGame {
             int hiddenIndex = generateMissedPosition(engine, progressionLength);
             int difference = generateCommonDifference(engine);
 
-            gameData[i] = generateProgression(progressionLength, firstElem, difference, hiddenIndex);
+            gameData[i][Engine.QUESTION_POSITION] = generateProgression(
+                    progressionLength, firstElem, difference, hiddenIndex
+            );
             int correctAnswer = getCorrectHiddenObject(firstElem, hiddenIndex, difference);
-            correctAnswers[i] = String.valueOf(correctAnswer);
+            gameData[i][Engine.ANSWER_POSITION] = String.valueOf(correctAnswer);
         }
         // Запуск игрового процесса
-        engine.playGame(Engine.PROGRESSION, GAME_RULES, gameData, correctAnswers);
+        engine.playGame(Engine.PROGRESSION, GAME_RULES, gameData);
     }
 
     private static int generateMissedPosition(Engine engine, int progressionLength) {

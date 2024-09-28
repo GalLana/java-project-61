@@ -23,7 +23,7 @@ public class Calculator {
                 result = number1 * number2;
                 break;
             default:
-                System.out.println("No such operation");
+                throw new Error("No such operation");
         }
         return result;
     }
@@ -32,19 +32,18 @@ public class Calculator {
         Engine engine = new Engine();
 
         // Генерим данные для игры и сразу вычисляем правильные ответы
-        String[] gameData = new String[Engine.ROUNDS_AMOUNT];
-        String[] correctAnswers = new String[Engine.ROUNDS_AMOUNT];
+        String[][] gameData = new String[Engine.ROUNDS_AMOUNT][Engine.GAME_DATA_LENGTH];
 
         for (int i = 0; i < Engine.ROUNDS_AMOUNT; i++) {
             int number1 = engine.generateGameData(SEED_FOR_FIRST_NUMBER_GENERATION);
             int number2 = engine.generateGameData(SEED_FOR_SECOND_NUMBER_GENERATION);
             int operation = engine.generateGameData(SEED_FOR_OPERATION_GENERATION);
 
-            gameData[i] = number1 + " " + OPERATIONS[operation] + " " + number2;
+            gameData[i][Engine.QUESTION_POSITION] = number1 + " " + OPERATIONS[operation] + " " + number2;
             int correctAnswer = getCorrectOperationResult(number1, number2, operation);
-            correctAnswers[i] = String.valueOf(correctAnswer);
+            gameData[i][Engine.ANSWER_POSITION] = String.valueOf(correctAnswer);
         }
         // Запуск игрового процесса
-        engine.playGame(Engine.CALC, GAME_RULES, gameData, correctAnswers);
+        engine.playGame(Engine.CALC, GAME_RULES, gameData);
     }
 }
